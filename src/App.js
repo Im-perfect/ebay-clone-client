@@ -10,7 +10,7 @@ import LoginFormContainer from "./components/LoginFormContainer";
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <header><Header /></header>
         <Route path="/" exact component={AdListContainer} />
         <Route path="/signup" exact component={SignupFormContainer} />

@@ -16,7 +16,7 @@ export default class LoginForm extends React.Component {
           </label>
           <input type="submit" value="Submit"></input>
         </form>
-        {/* <p>Forget your password?</p> */}
+        <hr />
       </div>
     );
   }

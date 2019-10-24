@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import { signup } from "../actions/user";
 
@@ -26,6 +26,9 @@ class SignupFormContainer extends React.Component {
   };
 
   render() {
+    if (this.props.loggedIn) {
+      return <Redirect to="/" />
+    }
     return (
       <div>
         <LoginForm
@@ -40,7 +43,7 @@ class SignupFormContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    token: state.auth
+    loggedIn: !!state.auth
   };
 };
 
