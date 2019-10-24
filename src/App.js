@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Route, Link } from "react-router-dom";
-import Home from "./components/Home";
+import { Route } from "react-router-dom";
+// import Home from "./components/Home";
 import Header from "./components/Header"
 import AdListContainer from "./components/AdListContainer";
 import SignupFormContainer from "./components/SignupContainer";

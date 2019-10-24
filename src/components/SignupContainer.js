@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+// import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
+import { signup } from "../actions/user";
 
-export default class SignupFormContainer extends React.Component {
+class SignupFormContainer extends React.Component {
   state = {
     username: "",
     password: ""
@@ -16,7 +18,11 @@ export default class SignupFormContainer extends React.Component {
 
   onSubmit = event => {
     event.preventDefault();
-    this.props.signup(this.props.state)
+    this.props.signup(this.state.username, this.state.password);
+    this.setState({
+      username: "",
+      password: ""
+    });
   };
 
   render() {
@@ -31,3 +37,14 @@ export default class SignupFormContainer extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    token: state.auth
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { signup }
+)(SignupFormContainer);
